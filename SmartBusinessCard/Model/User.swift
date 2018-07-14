@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+class User {
+    var cards: [Card]
+    
+    init() {
+        cards = []
+    }
+}
