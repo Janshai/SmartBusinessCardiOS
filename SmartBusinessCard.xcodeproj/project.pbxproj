@@ -7,12 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041F723D21014D8400069471 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F723C21014D8400069471 /* CoreDataStack.swift */; };
+		041F724521033E8C00069471 /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041F724421033E8C00069471 /* Message+CoreDataProperties.swift */; };
+		044217D72103743B00DB577B /* Card+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044217D62103743B00DB577B /* Card+CoreDataProperties.swift */; };
+		044217D921037A4200DB577B /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044217D821037A4200DB577B /* Messages.storyboard */; };
+		044217DB21037AF300DB577B /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044217DA21037AF300DB577B /* MessagesViewController.swift */; };
 		047841BC20F7F45F00F42796 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047841BB20F7F45F00F42796 /* AppDelegate.swift */; };
-		047841BE20F7F45F00F42796 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047841BD20F7F45F00F42796 /* ViewController.swift */; };
+		047841BE20F7F45F00F42796 /* YourCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047841BD20F7F45F00F42796 /* YourCardsViewController.swift */; };
 		047841C120F7F45F00F42796 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047841BF20F7F45F00F42796 /* Main.storyboard */; };
 		047841C420F7F45F00F42796 /* SmartBusinessCard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 047841C220F7F45F00F42796 /* SmartBusinessCard.xcdatamodeld */; };
 		047841C620F7F45F00F42796 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 047841C520F7F45F00F42796 /* Assets.xcassets */; };
 		047841C920F7F45F00F42796 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047841C720F7F45F00F42796 /* LaunchScreen.storyboard */; };
+		048A472A20FA1A9900BE50DF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A472920FA1A9900BE50DF /* User.swift */; };
+		048A473120FB381000BE50DF /* Card+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A472D20FB381000BE50DF /* Card+CoreDataClass.swift */; };
+		048A473320FB381000BE50DF /* Message+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A472F20FB381000BE50DF /* Message+CoreDataClass.swift */; };
 		048F581B2103E888004E9392 /* SmartBusinessCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048F581A2103E888004E9392 /* SmartBusinessCardTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,14 +35,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		041F723C21014D8400069471 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		041F724421033E8C00069471 /* Message+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		044217D62103743B00DB577B /* Card+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		044217D821037A4200DB577B /* Messages.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
+		044217DA21037AF300DB577B /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		047841B820F7F45F00F42796 /* SmartBusinessCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartBusinessCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		047841BB20F7F45F00F42796 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		047841BD20F7F45F00F42796 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		047841BD20F7F45F00F42796 /* YourCardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourCardsViewController.swift; sourceTree = "<group>"; };
 		047841C020F7F45F00F42796 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		047841C320F7F45F00F42796 /* SmartBusinessCard.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SmartBusinessCard.xcdatamodel; sourceTree = "<group>"; };
 		047841C520F7F45F00F42796 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		047841C820F7F45F00F42796 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		047841CA20F7F45F00F42796 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		048A472920FA1A9900BE50DF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		048A472D20FB381000BE50DF /* Card+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataClass.swift"; sourceTree = "<group>"; };
+		048A472F20FB381000BE50DF /* Message+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataClass.swift"; sourceTree = "<group>"; };
 		048F58182103E888004E9392 /* SmartBusinessCardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartBusinessCardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		048F581A2103E888004E9392 /* SmartBusinessCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartBusinessCardTests.swift; sourceTree = "<group>"; };
 		048F581C2103E888004E9392 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,15 +95,47 @@
 		047841BA20F7F45F00F42796 /* SmartBusinessCard */ = {
 			isa = PBXGroup;
 			children = (
+				048A472320FA18D200BE50DF /* Presentation */,
+				048A472220FA18B900BE50DF /* Model */,
 				047841BB20F7F45F00F42796 /* AppDelegate.swift */,
-				047841BD20F7F45F00F42796 /* ViewController.swift */,
-				047841BF20F7F45F00F42796 /* Main.storyboard */,
 				047841C520F7F45F00F42796 /* Assets.xcassets */,
-				047841C720F7F45F00F42796 /* LaunchScreen.storyboard */,
 				047841CA20F7F45F00F42796 /* Info.plist */,
-				047841C220F7F45F00F42796 /* SmartBusinessCard.xcdatamodeld */,
 			);
 			path = SmartBusinessCard;
+			sourceTree = "<group>";
+		};
+		048A472220FA18B900BE50DF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				048A472D20FB381000BE50DF /* Card+CoreDataClass.swift */,
+				044217D62103743B00DB577B /* Card+CoreDataProperties.swift */,
+				048A472F20FB381000BE50DF /* Message+CoreDataClass.swift */,
+				041F724421033E8C00069471 /* Message+CoreDataProperties.swift */,
+				047841C220F7F45F00F42796 /* SmartBusinessCard.xcdatamodeld */,
+				048A472920FA1A9900BE50DF /* User.swift */,
+				041F723C21014D8400069471 /* CoreDataStack.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		048A472320FA18D200BE50DF /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				048A472620FA192400BE50DF /* PresentationModels */,
+				047841C720F7F45F00F42796 /* LaunchScreen.storyboard */,
+				047841BF20F7F45F00F42796 /* Main.storyboard */,
+				047841BD20F7F45F00F42796 /* YourCardsViewController.swift */,
+				044217D821037A4200DB577B /* Messages.storyboard */,
+				044217DA21037AF300DB577B /* MessagesViewController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		048A472620FA192400BE50DF /* PresentationModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PresentationModels;
 			sourceTree = "<group>";
 		};
 		048F58192103E888004E9392 /* SmartBusinessCardTests */ = {
@@ -184,6 +232,7 @@
 			files = (
 				047841C920F7F45F00F42796 /* LaunchScreen.storyboard in Resources */,
 				047841C620F7F45F00F42796 /* Assets.xcassets in Resources */,
+				044217D921037A4200DB577B /* Messages.storyboard in Resources */,
 				047841C120F7F45F00F42796 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,9 +251,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				047841BE20F7F45F00F42796 /* ViewController.swift in Sources */,
+				044217DB21037AF300DB577B /* MessagesViewController.swift in Sources */,
+				048A473320FB381000BE50DF /* Message+CoreDataClass.swift in Sources */,
+				048A473120FB381000BE50DF /* Card+CoreDataClass.swift in Sources */,
+				047841BE20F7F45F00F42796 /* YourCardsViewController.swift in Sources */,
 				047841C420F7F45F00F42796 /* SmartBusinessCard.xcdatamodeld in Sources */,
 				047841BC20F7F45F00F42796 /* AppDelegate.swift in Sources */,
+				041F724521033E8C00069471 /* Message+CoreDataProperties.swift in Sources */,
+				044217D72103743B00DB577B /* Card+CoreDataProperties.swift in Sources */,
+				041F723D21014D8400069471 /* CoreDataStack.swift in Sources */,
+				048A472A20FA1A9900BE50DF /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +316,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -267,6 +324,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -317,6 +375,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -324,6 +383,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -360,6 +420,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B96G9ZSE72;
 				INFOPLIST_FILE = SmartBusinessCard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.adams.s.r.jack.SmartBusinessCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -375,6 +436,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B96G9ZSE72;
 				INFOPLIST_FILE = SmartBusinessCard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.adams.s.r.jack.SmartBusinessCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -393,7 +455,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B96G9ZSE72;
 				INFOPLIST_FILE = SmartBusinessCardTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.adams.s.r.jack.SmartBusinessCardTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -413,7 +475,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B96G9ZSE72;
 				INFOPLIST_FILE = SmartBusinessCardTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.adams.s.r.jack.SmartBusinessCardTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
