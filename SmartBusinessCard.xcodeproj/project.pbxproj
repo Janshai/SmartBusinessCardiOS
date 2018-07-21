@@ -21,7 +21,18 @@
 		048A472A20FA1A9900BE50DF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A472920FA1A9900BE50DF /* User.swift */; };
 		048A473120FB381000BE50DF /* Card+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A472D20FB381000BE50DF /* Card+CoreDataClass.swift */; };
 		048A473320FB381000BE50DF /* Message+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A472F20FB381000BE50DF /* Message+CoreDataClass.swift */; };
+		048F581B2103E888004E9392 /* SmartBusinessCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048F581A2103E888004E9392 /* SmartBusinessCardTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		048F581D2103E888004E9392 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 047841B020F7F45F00F42796 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 047841B720F7F45F00F42796;
+			remoteInfo = SmartBusinessCard;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		041F723C21014D8400069471 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -40,10 +51,20 @@
 		048A472920FA1A9900BE50DF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		048A472D20FB381000BE50DF /* Card+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataClass.swift"; sourceTree = "<group>"; };
 		048A472F20FB381000BE50DF /* Message+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataClass.swift"; sourceTree = "<group>"; };
+		048F58182103E888004E9392 /* SmartBusinessCardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartBusinessCardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		048F581A2103E888004E9392 /* SmartBusinessCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartBusinessCardTests.swift; sourceTree = "<group>"; };
+		048F581C2103E888004E9392 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		047841B520F7F45F00F42796 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		048F58152103E888004E9392 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -57,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				047841BA20F7F45F00F42796 /* SmartBusinessCard */,
+				048F58192103E888004E9392 /* SmartBusinessCardTests */,
 				047841B920F7F45F00F42796 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				047841B820F7F45F00F42796 /* SmartBusinessCard.app */,
+				048F58182103E888004E9392 /* SmartBusinessCardTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -115,6 +138,15 @@
 			path = PresentationModels;
 			sourceTree = "<group>";
 		};
+		048F58192103E888004E9392 /* SmartBusinessCardTests */ = {
+			isa = PBXGroup;
+			children = (
+				048F581A2103E888004E9392 /* SmartBusinessCardTests.swift */,
+				048F581C2103E888004E9392 /* Info.plist */,
+			);
+			path = SmartBusinessCardTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,19 +167,42 @@
 			productReference = 047841B820F7F45F00F42796 /* SmartBusinessCard.app */;
 			productType = "com.apple.product-type.application";
 		};
+		048F58172103E888004E9392 /* SmartBusinessCardTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 048F58212103E888004E9392 /* Build configuration list for PBXNativeTarget "SmartBusinessCardTests" */;
+			buildPhases = (
+				048F58142103E888004E9392 /* Sources */,
+				048F58152103E888004E9392 /* Frameworks */,
+				048F58162103E888004E9392 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				048F581E2103E888004E9392 /* PBXTargetDependency */,
+			);
+			name = SmartBusinessCardTests;
+			productName = SmartBusinessCardTests;
+			productReference = 048F58182103E888004E9392 /* SmartBusinessCardTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		047841B020F7F45F00F42796 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0940;
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Jack Adams";
 				TargetAttributes = {
 					047841B720F7F45F00F42796 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+					};
+					048F58172103E888004E9392 = {
+						CreatedOnToolsVersion = 9.4.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 047841B720F7F45F00F42796;
 					};
 				};
 			};
@@ -165,6 +220,7 @@
 			projectRoot = "";
 			targets = (
 				047841B720F7F45F00F42796 /* SmartBusinessCard */,
+				048F58172103E888004E9392 /* SmartBusinessCardTests */,
 			);
 		};
 /* End PBXProject section */
@@ -178,6 +234,13 @@
 				047841C620F7F45F00F42796 /* Assets.xcassets in Resources */,
 				044217D921037A4200DB577B /* Messages.storyboard in Resources */,
 				047841C120F7F45F00F42796 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		048F58162103E888004E9392 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +264,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		048F58142103E888004E9392 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				048F581B2103E888004E9392 /* SmartBusinessCardTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		048F581E2103E888004E9392 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 047841B720F7F45F00F42796 /* SmartBusinessCard */;
+			targetProxy = 048F581D2103E888004E9392 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		047841BF20F7F45F00F42796 /* Main.storyboard */ = {
@@ -366,6 +445,46 @@
 			};
 			name = Release;
 		};
+		048F581F2103E888004E9392 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B96G9ZSE72;
+				INFOPLIST_FILE = SmartBusinessCardTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.adams.s.r.jack.SmartBusinessCardTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartBusinessCard.app/SmartBusinessCard";
+			};
+			name = Debug;
+		};
+		048F58202103E888004E9392 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B96G9ZSE72;
+				INFOPLIST_FILE = SmartBusinessCardTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.adams.s.r.jack.SmartBusinessCardTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartBusinessCard.app/SmartBusinessCard";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -383,6 +502,15 @@
 			buildConfigurations = (
 				047841CE20F7F45F00F42796 /* Debug */,
 				047841CF20F7F45F00F42796 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		048F58212103E888004E9392 /* Build configuration list for PBXNativeTarget "SmartBusinessCardTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				048F581F2103E888004E9392 /* Debug */,
+				048F58202103E888004E9392 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
