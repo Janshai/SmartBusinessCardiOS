@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class YourCardsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
@@ -14,20 +15,64 @@ class YourCardsViewController: UIViewController, UICollectionViewDataSource, UIC
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         collectionView.alwaysBounceVertical = true
-        setupData()
+        loadData()
+        if cards.count == 0 {
+            setupData()
+        }
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         
     }
     
     func setupData() {
-        let mark = Card(firstName: "Mark", otherNames: "Zuckerberg")
-        mark.cardImageName = "Zuck"
-        let message = Message(text: "Hey, nice app!", card: mark)
-        mark.messages += [message]
-        cards += [mark]
+        let context = CoreDataStack.stack.persistentContainer.viewContext
+        let markBuilder = CardBuilder(withCardName: "Mark")
+        markBuilder.add(otherNames: "Zuckerberg")
+        markBuilder.add(image: "Zuck")
+        let mark = markBuilder.build()
+        
+        let jackBuilder = CardBuilder(withCardName: "Jack")
+        jackBuilder.add(image: "Jack")
+        let jack = jackBuilder.build()
+        
+        _ = Message(card: mark!, text: "Hey, cool app!", read: false)
+        _ = Message(card: mark!, text: "Maybe you should come work for me...", read: false)
+
+        
+        cards += [mark!, jack!]
+        
+        do {
+            try(context.save())
+        }
+        catch let err {
+            print(err)
+        }
+    }
+    
+    func loadData() {
+        let context = CoreDataStack.stack.persistentContainer.viewContext
+        
+        let fetchRequest = Card.createFetchRequest()
+        let dateOfLastMessageSortDescriptor = NSSortDescriptor(key: "dateOfLastMessage", ascending: false)
+        let dateAddedSortDescriptor = NSSortDescriptor(key: "dateAdded", ascending: false)
+        fetchRequest.sortDescriptors = [ dateOfLastMessageSortDescriptor, dateAddedSortDescriptor]
+        do {
+            cards = try(context.fetch(fetchRequest))
+        }
+        catch let err {
+            print(err)
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,6 +95,38 @@ class YourCardsViewController: UIViewController, UICollectionViewDataSource, UIC
         return CGSize(width: collectionView.frame.width, height: 100.0)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //performSegue(withIdentifier: "messageSegue", sender: cards[indexPath.row])
+        
+        let vc = UIStoryboard(name: "Messages", bundle: nil).instantiateInitialViewController() as? MessagesViewController
+        vc?.card = cards[indexPath.row]
+        if let controller = vc {
+            navigationController?.pushViewController(controller, animated: true)
+        }
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0.0
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0.0
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "messageSegue":
+            if let vc = segue.destination as? MessagesViewController {
+                vc.card = sender as? Card
+            }
+        default: break
+        }
+    }
+    
 
 }
 
@@ -60,25 +137,39 @@ class CardCell: UICollectionViewCell {
     @IBOutlet weak var messagePreviewLabel: UILabel!
     @IBOutlet weak var dateOfLastMessageLabel: UILabel!
     
+    private var message: Message?
+    
     var card: Card? {
         didSet {
-            if let c = card {
-                setupViews(withCard: c)
-            }
-            
+            setupViews()
         }
     }
     
-    private func setupViews(withCard c: Card) {
-        setupImageView(withCard: c)
-        setupNameLabel(withCard: c)
-        setupMessagePreview(withCard: c)
-        setupDate(withCard: c)
+     private func setupViews() {
+        let context = CoreDataStack.stack.persistentContainer.viewContext
+        let fetchRequest = Message.createFetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+        fetchRequest.predicate = NSPredicate(format: "%K == %@", "card.id", card!.id as CVarArg)
+        do {
+            let messages = try(context.fetch(fetchRequest))
+            message = messages.first
+        }
+        catch let err {
+            print(err)
+            return
+        }
+        
+        setupImageView()
+        setupNameLabel()
+        setupMessagePreview()
+        setupDate()
+        
+        
        
     }
     
-    private func setupImageView(withCard c: Card) {
-        let imageName = c.cardImageName ?? "DefaultCardImage"
+    private func setupImageView() {
+        let imageName = card?.cardImageName ?? "DefaultCardImage"
         profileImageView.image = UIImage(named: imageName)
         profileImageView.contentMode = .scaleAspectFill
         profileImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -86,35 +177,51 @@ class CardCell: UICollectionViewCell {
         profileImageView.layer.masksToBounds = true
     }
     
-    private func setupNameLabel(withCard c: Card) {
-        nameLabel.text = "\(c.firstName)"
-        if let extraNames = c.otherNames {
+    private func setupNameLabel() {
+        guard let setCard = card else {
+            return
+        }
+        nameLabel.text = "\(setCard.firstName)"
+        if let extraNames = setCard.otherNames {
             nameLabel.text! += " \(extraNames)"
         }
     }
     
-    private func setupMessagePreview(withCard c: Card) {
-        var message: String
-        if let text = c.messages.first?.text {
-            message = "\(c.firstName): \(text)"
+    private func setupMessagePreview() {
+        guard let setCard = card else {
+            return
+        }
+        var messageText: String
+        if let text = message?.text{
+            messageText = "\(setCard.firstName): \(text)"
         }
         else {
-            message = "You added \(c.firstName)'s card!"
+            messageText = "You added \(setCard.firstName)'s card!"
         }
         
-        messagePreviewLabel.text = message
+        let read = message?.read ?? true
+        if !read {
+            let font = UIFont.boldSystemFont(ofSize: messagePreviewLabel.font.pointSize)
+            messagePreviewLabel.font = font
+            messagePreviewLabel.textColor = #colorLiteral(red: 0.1992851496, green: 0.1992851496, blue: 0.1992851496, alpha: 1)
+        }
+        
+        messagePreviewLabel.text = messageText
     }
     
-    private func setupDate(withCard c: Card) {
+    private func setupDate() {
+        guard let setCard = card else {
+            return
+        }
         var dateString: String
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "hh:mm"
         
-        if let date = c.messages.first?.date {
+        if let date = message?.date {
             dateString = dateFormatter.string(from: date)
         }
         else {
-            dateString = dateFormatter.string(from: c.dateAdded)
+            dateString = dateFormatter.string(from: setCard.dateAdded)
         }
         
         dateOfLastMessageLabel.text = dateString
